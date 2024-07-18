@@ -21,7 +21,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $categoryId = optional($this->route('category'))->id;
+        $categoryId = $this->route('category');
         return [
             'name' => 'required|string|max:255|unique:categories,name,' . $categoryId,
             'B_percentage' => 'required|numeric|between:0,100',
